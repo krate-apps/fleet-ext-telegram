@@ -1,0 +1,20 @@
+schema: 1
+id: org.fleet.telegram
+name: Telegram
+description: Notify a Telegram chat when torrents are added, finished, or removed.
+version: 1.0.0
+api: ">=1.0.0 <2.0.0"
+engines:
+  - rtorrent
+capabilities:
+  - storage.read
+  - storage.write
+  - torrents.read
+  - http.fetch
+frontend:
+  type: declarative
+  entry: ui/extension.json
+backend:
+  type: process
+  executable: bin/telegram-worker
+  protocol: jsonrpc-2

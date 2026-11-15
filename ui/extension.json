@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "extensionId": "org.fleet.telegram",
+  "pages": [
+    {
+      "id": "notify",
+      "title": "Telegram",
+      "route": "/ext/org.fleet.telegram/notify"
+    }
+  ],
+  "actions": [
+    {
+      "id": "test-message",
+      "label": "Send test message",
+      "target": "global",
+      "primary": true
+    },
+    {
+      "id": "scan-now",
+      "label": "Scan now",
+      "target": "global"
+    }
+  ],
+  "panels": [
+    {
+      "id": "telegram-settings",
+      "title": "Telegram",
+      "placement": "settings"
+    }
+  ],
+  "forms": [
+    {
+      "id": "telegram-settings",
+      "title": "Telegram notifications",
+      "fields": [
+        {
+          "name": "enabled",
+          "label": "Enabled",
+          "kind": "boolean",
+          "help": "Master switch for this worker."
+        },
+        {
+          "name": "botToken",
+          "label": "Bot token (leave blank to keep)",
+          "kind": "text"
+        },
+        {
+          "name": "clearToken",
+          "label": "Clear stored token",
+          "kind": "boolean"
+        },
+        {
+          "name": "chatId",
+          "label": "Chat ID",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "name": "notifyAdded",
+          "label": "Notify on addition",
+          "kind": "boolean"
+        },
+        {
+          "name": "notifyFinished",
+          "label": "Notify on finish",
+          "kind": "boolean"
+        },
+        {
+          "name": "notifyRemoved",
+          "label": "Notify on removal",
+          "kind": "boolean"
+        },
+        {
+          "name": "intervalSec",
+          "label": "Scan interval (seconds)",
+          "kind": "number",
+          "required": true,
+          "help": "How often the worker wakes up.",
+          "placeholder": "60",
+          "advanced": true
+        },
+        {
+          "name": "templateAdded",
+          "label": "Added template ({name} {hash} {size})",
+          "kind": "text",
+          "placeholder": "{name} added ({size})",
+          "advanced": true
+        },
+        {
+          "name": "templateFinished",
+          "label": "Finished template",
+          "kind": "text",
+          "placeholder": "{name} finished",
+          "advanced": true
+        },
+        {
+          "name": "templateRemoved",
+          "label": "Removed template",
+          "kind": "text",
+          "placeholder": "{name} removed",
+          "advanced": true
+        }
+      ],
+      "description": "Bot token + chat id first; templates and filters live under More options."
+    }
+  ]
+}
